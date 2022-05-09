@@ -1,15 +1,24 @@
 #include <stdio.h>
+
 int main()
 {
+    // we assign num1, num2, num as an integer.
+    int num1, num2, num;
 
-    int number1, number2;
+    // we print the user's input for user to enter the value
+    printf("Enter your first number: ");
+    // Then we scan the user's value by using function "scanf"
+    scanf("%d", &num1);
 
-    printf("Enter two integers: ");
-    scanf("%d %d", &number1, &number2);
+    // we print the user's input for user to enter the value
+    printf("Enter your second number: ");
+    scanf("%d", &num2);
 
-    // calculating sum
-    // sum = number1 + number2;
+    // we sum the value 1 and value 2 together
+    num = num1 + num2;
 
-    // printf("%d + %d = %d ", number1, number2, sum);
+    // finally we print the final result
+    printf("The sum of number = %d", num);
+
     return 0;
 }
