@@ -21,7 +21,7 @@ int main()
     int result = current + born + immigrant - death;
 
     // Display the population
-    printf("The population in the next 5 years = %d", result);
+    printf("The population in the next 5 years = %d \n", result);
 
     return 0;
 }

@@ -3,7 +3,7 @@
 int main()
 {
     float weight, pound;
-    printf("Please in put the weight");
+    printf("Please in put the weight = ");
 
     // Allow the user to enter the number
     scanf("%f", &weight);
@@ -12,6 +12,6 @@ int main()
     pound = weight * 2.204;
 
     // Display the weight in (pound)
-    printf("Therefore %f Kg = %.2f pounds", weight, pound);
+    printf("Therefore %f Kg = %.2f pounds \n", weight, pound);
     return 0;
 }

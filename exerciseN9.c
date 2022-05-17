@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define _USE_MATH_DEFINES
+
 // include math.h because we need to use pow function
 #include <math.h>
 
@@ -29,6 +29,6 @@ int main()
 
     // we print the value of volume and comes along with new line
     printf("The volume = %.2f m^3\n", volume);
-    printf("Thank You");
+    printf("Thank You \n");
     return 0;
 }
