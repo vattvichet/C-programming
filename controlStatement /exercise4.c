@@ -6,13 +6,13 @@ int main()
 
     scanf("%f", &num);
 
-    if (num < 20)
+    if (num >= 20)
     {
-        printf("Too Low \n");
+        printf("Too High \n");
     }
     else
     {
-        printf("Too High \n");
+        printf("Thank you  \n");
     }
     return 0;
 }

@@ -4,11 +4,11 @@
 int main()
 {
     float a, b, c, discriminant, root1, root2;
-
+    // Let the user input the value
     printf("Please enter the value of a  b and c respectively : ");
     scanf("%f %f %f", &a, &b, &c);
-    // input the discriminant recipe
 
+    // input the discriminant recipe
     discriminant = (b * b) - (4 * a * c);
     printf("Our discriminant =  %.2f  \n", discriminant);
     // condition for real and diferent root
@@ -26,7 +26,7 @@ int main()
     }
     else
     {
-        printf("The equation has no real roots! \n");
+        printf("The equation has no real roots! \n"); // it happends when our discriminant is less then zero
     }
 
     return 0;

@@ -2,6 +2,7 @@
 int main()
 {
     float num;
+    // Let the user enter the numbers
     printf("Please type a number you want: ");
     scanf("%f", &num);
 
@@ -9,7 +10,7 @@ int main()
     {
         printf("Too Low \n");
     }
-    else if (num < 20)
+    else if (num <= 20)
     {
         printf("Correct \n");
     }
