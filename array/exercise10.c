@@ -15,7 +15,7 @@ int main()
     // Initialization of values
     minLeftIndex = 0;
     minRightIndex = 1;
-    min_sum = numberArray[0] + numberArray[1];
+    min_sum = numberArray[0] + numberArray[1]; // It will be used to compare with the next Sum
 
     for (leftIndex = 0; leftIndex < length - 1; leftIndex++)
     {
@@ -24,6 +24,7 @@ int main()
             sum = numberArray[leftIndex] + numberArray[rightIndex];
             if (abs(min_sum) > abs(sum))
             {
+                // The minimum Sum always change if the checking is true
                 min_sum = sum;
                 minLeftIndex = leftIndex;
                 minRightIndex = rightIndex;

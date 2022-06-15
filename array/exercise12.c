@@ -1,44 +1,54 @@
+// C program to find the sum of two matrices of order 2*2
+
 #include <stdio.h>
 int main()
 {
-    int rows, columns, i, j, sum;
-    //
-    printf("Enter the amount of rows and columns : \n");
-    scanf("%d %d", &rows, &columns);
-    int a[rows][columns], b[rows][columns];
-    //
+    float fristMatrix[2][2], sencondMatrix[2][2], result[2][2];
+    int rows, columns;
 
-    printf("Enter the element of the first matrix : \n");
-    for (i = 0; i < rows; i++)
+    // First Matrix
+    printf("Enter elements of 1st matrix\n");
+    for (int rows = 0; rows < 2; rows++)
     {
-        for (j = 0; j < columns; j++)
+        for (int columns = 0; columns < 2; columns++)
         {
-            scanf("%d", &a[rows][columns]);
+            scanf("%f", &fristMatrix[rows][columns]);
         }
     }
-    //
 
-    printf("Enter the element of the second matrix : \n");
-    for (i = 0; i < rows; i++)
+    // Second Matrix
+    printf("Enter elements of 2nd matrix\n");
+    for (int rows = 0; rows < 2; rows++)
     {
-        for (j = 0; j < columns; j++)
+        for (int columns = 0; columns < 2; columns++)
         {
-            scanf("%d", &b[rows][columns]);
+            scanf("%f", &sencondMatrix[rows][columns]);
         }
     }
-    //
-
-    printf("The sum of two matix is :");
-    for (i = 0; i < rows; i++)
+    // The adding area
+    for (int rows = 0; rows < 2; rows++)
     {
-        for (j = 0; j < columns; j++)
+        for (int columns = 0; columns < 2; columns++)
         {
-            sum = a[i][j] + b[i][j];
-            printf("%d", sum);
+            result[rows][columns] = fristMatrix[rows][columns] + sencondMatrix[rows][columns];
         }
+    }
 
+    // Displaying the sum
+    printf("\nSum Of Matrix:");
+
+    for (int rows = 0; rows < 2; rows++)
+    {
         printf("\n");
-    }
+        for (int columns = 0; columns < 2; columns++)
+        {
+            printf("%.1f \t", result[rows][columns]);
 
+            if (columns == 1)
+            {
+                printf("\n");
+            }
+        }
+    }
     return 0;
 }
