@@ -7,6 +7,8 @@ int main()
     int temp; // Used for swapping
 
     /* Input size of the array */
+
+    //
     printf("Enter size of the number: ");
     scanf("%d", &size);
 
