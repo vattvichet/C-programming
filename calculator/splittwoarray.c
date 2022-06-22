@@ -1,16 +1,18 @@
 #include <stdio.h>
-#define MAX 1000
+
 int main()
 {
-    char octalnum[MAX];
-    long i = 0;
+    char octalnum[1000];
+    long q = 0;
 
-    printf("Enter any octal number her:");
+    printf("Enter any octal number here :");
     scanf("%s", octalnum);
-    printf("Equivalent binary value: ");
-    while (octalnum[i])
+    //
+    printf("\n Equivalent binary value: ");
+    //
+    while (octalnum[q])
     {
-        switch (octalnum[i])
+        switch (octalnum[q])
         {
         case '0':
             printf("000");
@@ -20,6 +22,7 @@ int main()
             break;
         case '2':
             printf("010");
+            break;
         case '3':
             printf("011");
             break;
@@ -35,11 +38,15 @@ int main()
         case '7':
             printf("111");
             break;
+        case '.':
+            printf(".");
+            break;
         default:
-
-            printf("\n Invalid octal gigit %c", octalnum[i]);
+            printf("\n \n %c is not Binary Number \n \n", octalnum[q]);
         }
-        i++;
+        q++;
     }
+
+    //
     return 0;
 }
