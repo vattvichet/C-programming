@@ -1,26 +1,38 @@
 #include <stdio.h>
-#include <string.h>
-#include <math.h>
 int main()
 {
-    char binary[30];
-    int decimal = 0;
-
-    printf("Enter a binary: ");
-    scanf("%s", binary);
-    int a = strlen(binary);
-
-    int n = strlen(binary) - 1; // Exponent
-
-    // Convert
-    for (int i = 0; i < strlen(binary); i++)
+    float floatingPart;
+    double fullDecimal;
+    int integerPart, r, l = 0, m[20], n, t, remainderAmount = 0, s;
+    printf("Enter any number:");
+    scanf("%lf", &fullDecimal);
+    integerPart = fullDecimal;
+    floatingPart = fullDecimal - integerPart;
+    //
+    printf("\n");
+    while (integerPart != 0)
     {
-        decimal += (binary[i] - '0') * pow(2, n);
-        n--;
+        n = integerPart % 2;
+        integerPart /= 2;
+        m[t] = n;
+        remainderAmount += 1; // Amount of remaider keep increasing
+        t++;
     }
-    printf("%d \n", decimal);
-    printf("n is %d \n", n);
-    printf("length is : %d", a);
-
+    for (r = remainderAmount - 1; r >= 0; r--) // Print all the remainder backward
+    {
+        printf("%d", m[r]);
+    }
+    //
+    printf(".");
+    //
+    for (s = 1; s <= 8; s++)
+    {
+        floatingPart = floatingPart * 2;
+        l = floatingPart;
+        printf("%d", l);
+        if (l == 1)
+            floatingPart = floatingPart - l;
+    }
+    printf("\n");
     return 0;
 }

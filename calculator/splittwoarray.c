@@ -1,52 +1,40 @@
 #include <stdio.h>
-
 int main()
 {
-    char octalnum[1000];
-    long q = 0;
+    float floatingPart;
+    double decimalNumber;
+    int dec[20];
+    int integerPart, n, t, r, s, count = 0, l = 0;
 
-    printf("Enter any octal number here :");
-    scanf("%s", octalnum);
+    printf("Enter any number:");
+    scanf("%lf", &decimalNumber);
+    integerPart = decimalNumber;                // it take only integer part from the full Decimal
+    floatingPart = decimalNumber - integerPart; // We want to get only floating part from full Decimal
     //
-    printf("\n Equivalent binary value: ");
-    //
-    while (octalnum[q])
+    printf("\n");
+    while (integerPart != 0)
     {
-        switch (octalnum[q])
-        {
-        case '0':
-            printf("000");
-            break;
-        case '1':
-            printf("001");
-            break;
-        case '2':
-            printf("010");
-            break;
-        case '3':
-            printf("011");
-            break;
-        case '4':
-            printf("100");
-            break;
-        case '5':
-            printf("101");
-            break;
-        case '6':
-            printf("110");
-            break;
-        case '7':
-            printf("111");
-            break;
-        case '.':
-            printf(".");
-            break;
-        default:
-            printf("\n \n %c is not Binary Number \n \n", octalnum[q]);
-        }
-        q++;
+        n = integerPart % 2;
+        integerPart /= 2;
+        dec[t] = n;
+        count += 1; // the amount of remiander
+        t++;
     }
-
+    for (r = count - 1; r >= 0; r--) // print out the backward remainder
+    {
+        printf("%d", dec[r]);
+    }
     //
+    printf(".");
+    //
+    for (s = 1; s <= 6; s++)
+    {
+        floatingPart = floatingPart * 2;
+        l = floatingPart;
+        printf("%d", l);
+        if (l == 1)
+            floatingPart = floatingPart - l;
+    }
+    printf("\n");
     return 0;
 }
