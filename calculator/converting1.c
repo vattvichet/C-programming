@@ -12,20 +12,20 @@ int main()
     {
 
         char binary[30];
-        int rightPower = 1;
-        int i, j, k;
-        float sum = 0;
-        int leftPower;
-        float beforeDecimal = 0;
-        float afterDecimal = 0;
-        int n = strlen(binary) - 2; // Exponent (Use with when user doesn't enter Floating Number)
-        // For exponential (We have to substract it by 2, Cus 1 is for the last digit and other 1 is for .     )
 
         printf("Enter a binary: ");
-        scanf("%s", &binary);
-
-        // Finding position of point
+        scanf("%s", binary);
         //
+        float decimal = 0;
+        int n = strlen(binary) - 1; // Exponent (Use with when user doesn't enter Floating Number)
+        float beforeDecimal = 0;
+        float afterDecimal = 0;
+        int rightPower = 1;
+        int i, j, k;
+
+        int leftPower;
+        // Finding position of point
+
         for (i = 0; i < strlen(binary); i++)
         {
             if (binary[i] == '.')
@@ -39,33 +39,30 @@ int main()
                     beforeDecimal += (binary[j] - '0') * pow(2, leftPower);
                     leftPower--;
                 }
-                printf(" Before Decimal : %f \n \n", beforeDecimal);
-                //
-                // After Floating Point
+                printf(" \n \n Before Decimal : %f \n \n", beforeDecimal);
 
+                // After Floating Point
                 for (k = afterPointPosition; k < strlen(binary); k++)
                 {
                     afterDecimal += (binary[k] - '0') * pow(2, -rightPower);
                     rightPower++;
                 }
                 // Starting with the minus Exponential
-                printf(" After Point Position :%d \n \n", afterPointPosition);
+                printf(" After Point Position's :%d \n \n", afterPointPosition);
                 //
                 printf(" After Decimal : %f", afterDecimal);
                 //
-                //
-                sum = beforeDecimal + afterDecimal;
-                //
+                decimal = beforeDecimal + afterDecimal;
                 break;
             }
             else
             {
-                sum += (binary[i] - '0') * pow(2, n);
+                decimal += (binary[i] - '0') * pow(2, n);
                 n--;
             }
         }
 
-        printf(" \n \n \t sum : %f \n \n", sum);
+        printf(" \n \n \t Decimal : %f \n \n", decimal);
         //
     }
 
