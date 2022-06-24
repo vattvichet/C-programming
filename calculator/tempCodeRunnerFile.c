@@ -1,6 +1,4 @@
-  }
-            else
-            {
-                sumWithoutFloat += (binary[i] - '0') * pow(2, n);
-                n--;
-            }
+for (r = remainderAmount - 1; r >= 0; r--) // Print all the remainder backward
+        // {
+        //     printf("%d", m[r]);
+        // }

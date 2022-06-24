@@ -4,11 +4,11 @@
 #include <math.h>
 int main()
 {
-    int chosen;
+    int option;
     printf("Please choose a number : ");
-    scanf("%d", &chosen);
+    scanf("%d", &option);
 
-    if (chosen == 1)
+    if (option == 1)
     {
 
         char binary[30];
@@ -66,24 +66,29 @@ int main()
         //
     }
 
-    else if (chosen == 2)
+    else if (option == 2)
     {
 
-        double fullDecimal;
-        float floatingPart;
-        int integerPart, r, l = 0, m[20], rem, t, remainderAmount = 0, s;
+        float fullDecimal;
         printf("Enter any number:");
-        scanf("%lf", &fullDecimal);
+        scanf("%f", &fullDecimal);
+
+        float floatingPart;
+
+        int integerPart, r, l = 0, m[20], f, t = 0, remainderAmount = 0, s;
 
         integerPart = fullDecimal;
         floatingPart = fullDecimal - integerPart;
         //
         printf("\n");
+
+        printf("Your Binary : ");
+        //
         while (integerPart != 0)
         {
-            rem = integerPart % 2;
+            f = integerPart % 2;
             integerPart /= 2;
-            m[t] = rem;           // store remainder in array
+            m[t] = f;
             remainderAmount += 1; // Amount of remaider keep increasing
             t++;
         }
@@ -91,6 +96,7 @@ int main()
         {
             printf("%d", m[r]);
         }
+
         //
         printf(".");
         //
@@ -102,12 +108,12 @@ int main()
             if (l == 1)
                 floatingPart = floatingPart - l;
         }
-        printf("\n");
+        printf("\n \n \n");
     }
 
     // Vicheka's Part (Octal to Binary)
 
-    else if (chosen == 5)
+    else if (option == 5)
     {
         char octalnum[1000];
         long q = 0;

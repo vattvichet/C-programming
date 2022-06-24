@@ -1,38 +1,45 @@
 #include <stdio.h>
 int main()
 {
-    float floatingPart;
-    double fullDecimal;
-    int integerPart, r, l = 0, m[20], n, t, remainderAmount = 0, s;
-    printf("Enter any number:");
-    scanf("%lf", &fullDecimal);
-    integerPart = fullDecimal;
-    floatingPart = fullDecimal - integerPart;
-    //
-    printf("\n");
-    while (integerPart != 0)
+    int dec;
+    int hex[100];
+    int i = 0, j;
+    printf(" Input Decimal value : ");
+    scanf("%d", &dec);
+    do
     {
-        n = integerPart % 2;
-        integerPart /= 2;
-        m[t] = n;
-        remainderAmount += 1; // Amount of remaider keep increasing
-        t++;
-    }
-    for (r = remainderAmount - 1; r >= 0; r--) // Print all the remainder backward
+        hex[i] = dec % 16;
+        dec /= 16;
+        i++;
+    } while (dec > 0);
+    printf("\n Hexadecimal value is ");
+    for (j = i - 1; j >= 0; j--)
     {
-        printf("%d", m[r]);
+        switch (hex[j])
+        {
+        case 15:
+            printf("F");
+            break;
+        case 14:
+            printf("E");
+            break;
+        case 13:
+            printf("D");
+            break;
+        case 12:
+            printf("C");
+            break;
+        case 11:
+            printf("B");
+            break;
+        case 10:
+            printf("A");
+            break;
+        default:
+            printf("%d", hex[j]);
+        }
     }
-    //
     printf(".");
-    //
-    for (s = 1; s <= 8; s++)
-    {
-        floatingPart = floatingPart * 2;
-        l = floatingPart;
-        printf("%d", l);
-        if (l == 1)
-            floatingPart = floatingPart - l;
-    }
-    printf("\n");
+
     return 0;
 }
