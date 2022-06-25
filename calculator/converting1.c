@@ -105,8 +105,11 @@ int main()
             floatingPart = floatingPart * 2;
             l = floatingPart;
             printf("%d", l);
+            //
             if (l == 1)
+            {
                 floatingPart = floatingPart - l;
+            }
         }
         printf("\n \n \n");
     }

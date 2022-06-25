@@ -1,45 +1,59 @@
 #include <stdio.h>
+#include <string.h>
+#include <math.h>
 int main()
 {
-    int dec;
-    int hex[100];
-    int i = 0, j;
-    printf(" Input Decimal value : ");
-    scanf("%d", &dec);
-    do
+
+    char binary[30];
+
+    printf("Enter a binary: ");
+    scanf("%s", binary);
+    //
+    float decimal = 0;
+    int n = strlen(binary) - 1; // Exponent (Use with when user doesn't enter Floating Number)
+    float beforeDecimal = 0;
+    float afterDecimal = 0;
+    int rightPower = 1;
+    int i, j, k;
+
+    int leftPower;
+    // Finding position of point
+
+    for (i = 0; i < strlen(binary); i++)
     {
-        hex[i] = dec % 16;
-        dec /= 16;
-        i++;
-    } while (dec > 0);
-    printf("\n Hexadecimal value is ");
-    for (j = i - 1; j >= 0; j--)
-    {
-        switch (hex[j])
+        if (binary[i] == '.')
         {
-        case 15:
-            printf("F");
+            int afterPointPosition = i + 1;
+            leftPower = i - 1;
+            //
+            // Before Faloating Point
+            for (int j = 0; j < i; j++)
+            {
+                beforeDecimal += (binary[j] - '0') * pow(2, leftPower);
+                leftPower--;
+            }
+            printf(" \n \n Before Decimal : %f \n \n", beforeDecimal);
+
+            // After Floating Point
+            for (k = afterPointPosition; k < strlen(binary); k++)
+            {
+                afterDecimal += (binary[k] - '0') * pow(2, -rightPower);
+                rightPower++;
+            }
+            printf(" After Decimal : %f", afterDecimal);
+            //
+            decimal = beforeDecimal + afterDecimal;
             break;
-        case 14:
-            printf("E");
-            break;
-        case 13:
-            printf("D");
-            break;
-        case 12:
-            printf("C");
-            break;
-        case 11:
-            printf("B");
-            break;
-        case 10:
-            printf("A");
-            break;
-        default:
-            printf("%d", hex[j]);
+        }
+        else
+        {
+            decimal += (binary[i] - '0') * pow(2, n);
+            n--;
         }
     }
-    printf(".");
+
+    printf(" \n \n \t Decimal : %f \n \n", decimal);
+    //
 
     return 0;
 }
