@@ -1,83 +1,33 @@
 #include <stdio.h>
+#include <math.h>
 int main()
 {
+    int i, octal = 0, decimal = 0;
+    long binary;
 
-    float dec;
-    int hex[100];
-    int integerPart = dec;
-    float floatingPart = dec - integerPart;
-    int i = 0, j, l;
-    printf(" Input Decimal value : ");
-    scanf("%f", &dec);
-    while (integerPart > 0)
+    printf("Enter The Binary To Number=");
+    scanf("%d", &binary);
+
+    i = 0;
+    while (binary != 0)
     {
-        hex[i] = integerPart % 16;
-        integerPart /= 16;
+        decimal = decimal + (binary % 10) * pow(2, i);
+        i++;
+        binary = binary / 10;
+    }
+
+    i = 1;
+    while (decimal != 0)
+    {
+        octal = octal + (decimal % 8) * i;
+        decimal = decimal / 8;
+        i = i * 10;
+    }
+    printf(".");
+    printf("The octal Value=%d\n", octal);
+    {
         i++;
     }
-    printf("\n Hexadecimal value is ");
-    for (j = i - 1; j >= 0; j--)
-    {
-        switch (hex[j])
-        {
-        case 15:
-            printf("F");
-            break;
-        case 14:
-            printf("E");
-            break;
-        case 13:
-            printf("D");
-            break;
-        case 12:
-            printf("C");
-            break;
-        case 11:
-            printf("B");
-            break;
-        case 10:
-            printf("A");
-            break;
-        default:
-            printf("%d", hex[j]);
-        }
-    }
 
-    printf(".");
-    for (int s = 1; s <= 5; s++)
-    {
-        floatingPart = floatingPart * 8;
-        l = floatingPart;
-        printf("%d", l);
-        //
-        if (l >= 1)
-        {
-            floatingPart = floatingPart - l;
-        }
-        switch (hex[s])
-        {
-        case 15:
-            printf("F");
-            break;
-        case 14:
-            printf("E");
-            break;
-        case 13:
-            printf("D");
-            break;
-        case 12:
-            printf("C");
-            break;
-        case 11:
-            printf("B");
-            break;
-        case 10:
-            printf("A");
-            break;
-        default:
-            printf("%d", hex[s]);
-        }
-    }
-    printf("\n\n");
     return 0;
 }
